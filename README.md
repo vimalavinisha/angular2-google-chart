@@ -144,3 +144,5 @@ The sources for this package are in (https://github.com/vimalavinisha/angular2-g
              height: 500
            };
        }
+###3 Example Charts
+      <img src="../app/assets/images/google-charts-output.png">
