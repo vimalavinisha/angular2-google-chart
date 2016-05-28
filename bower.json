@@ -1,0 +1,26 @@
+{
+  "name": "angular2-google-chart",
+  "authors": [
+    "Vimala A (vimalamca1991@gmcail.com)"
+  ],
+  "description": "google chart directive for angular2",
+  "main": "",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "keywords": [
+    "angular2",
+    "angular2-google-chart",
+	"angular2-google"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
