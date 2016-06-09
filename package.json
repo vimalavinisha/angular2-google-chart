@@ -1,29 +1,8 @@
 {
   "name": "angular2-google-chart",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "google chart directive for angular2",
   "main": "index.js",
-  "dependencies": {
-    "angular2": "^2.0.0-beta.14",
-    "es6-shim": "^0.35.0",
-    "concurrently": "^2.0.0",
-    "lite-server": "^2.2.0",
-    "reflect-metadata": "^0.1.2",
-    "rxjs": "^5.0.0-beta.2",
-    "typescript": "^1.8.10",
-    "systemjs": "^0.19.25",
-    "zone.js": "^0.6.6",
-    "typings": "^0.7.12"
-  },
-   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "lite": "lite-server",
-    "typings": "typings",
-    "postinstall": "typings install"
-  },
-  "license": "MIT",
   "dependencies": {
     "angular2": "2.0.0-beta.12",
     "systemjs": "0.19.25",
@@ -32,6 +11,27 @@
     "rxjs": "5.0.0-beta.2",
     "zone.js": "0.6.6"
   },
+  "scripts": {
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "typings": "typings",
+    "postinstall": "typings install"
+  },
+  "license": "MIT",
   "author": "Vimala A",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vimalavinisha/angular2-google-chart.git"
+  },
+  "keywords": [
+    "google-chart",
+    "angular2-google-chart",
+    "chart"
+  ],
+  "bugs": {
+    "url": "https://github.com/vimalavinisha/angular2-google-chart/issues"
+  },
+  "homepage": "https://github.com/vimalavinisha/angular2-google-chart#readme"
 }
