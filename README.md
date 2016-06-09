@@ -2,7 +2,8 @@ Angular2
 =========
 
 The sources for this package are in (https://github.com/vimalavinisha/angular2-google-chart) repo. Please file issues and pull requests against this repo.
-
+## Demo Output
+  ![google-charts-output](https://cloud.githubusercontent.com/assets/11042288/15920261/0befe726-2e36-11e6-8ff8-4f056c1b0f72.png) 
 ##Usage
     node install
       npm install angular2-google-chart
