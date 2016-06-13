@@ -90,7 +90,7 @@ export class AppComponent {
     };
     public scatter_ChartOptions = {
       legend: { position: 'bottom'
-               }
+               },
         title: 'Company Sales Percentage'
     };
     public bar_ChartOptions = {
@@ -125,8 +125,8 @@ export class AppComponent {
            }
          };
     public pie_ChartOptions  = {
-      title: 'My Daily Activities'
-      width: 900
+      title: 'My Daily Activities',
+      width: 900,
       height: 500
     };
 }

@@ -1,6 +1,6 @@
 {
   "name": "angular2-google-chart",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "google chart directive for angular2",
   "main": "index.js",
   "dependencies": {
