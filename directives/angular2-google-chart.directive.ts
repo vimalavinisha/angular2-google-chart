@@ -1,4 +1,4 @@
-import {Directive,ElementRef,Input} from 'angular2/core';
+import {Directive,ElementRef,Input,OnInit} from 'angular2/core';
 declare var google:any;
 declare var googleLoaded:any = false;
 @Directive({
@@ -20,7 +20,7 @@ export class GoogleChart implements OnInit {
   ngOnInit() {
     if(!googleLoaded) {
       googleLoaded = true;
-    google.charts.load('current', {'packages':['corechart']});
+    google.charts.load('current', {'packages':['corechart', 'gauge']});
      }
     setTimeout(() =>this.drawGraph(this.chartOptions,this.chartType,this.chartData,this._element),1000);
   }
