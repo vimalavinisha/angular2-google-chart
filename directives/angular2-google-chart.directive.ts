@@ -1,6 +1,6 @@
 import {Directive,ElementRef,Input,OnInit} from 'angular2/core';
 declare var google:any;
-declare var googleLoaded:any = false;
+declare var googleLoaded:any;
 @Directive({
   selector: '[GoogleChart]',
   properties: [
