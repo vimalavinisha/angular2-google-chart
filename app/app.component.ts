@@ -8,11 +8,21 @@ import {GoogleChart} from '../directives/angular2-google-chart.directive';
     selector : 'my-app',
     directives: [GoogleChart],
     template:  `
+    <h2>  Gaugh Chart</h2>
+    <div id="gauge_chart" [chartData]="gauge_ChartData" [chartOptions]= "gauge_ChartOptions" chartType="Gauge" GoogleChart></div>
+    <h2>  Area Chart</h2>
+    <div id="area_chart" [chartData]="area_ChartData" [chartOptions]= "area_ChartOptions" chartType="AreaChart" GoogleChart></div>
+    <h2>  Line Chart</h2>
     <div id="line_chart" [chartData]="line_ChartData" [chartOptions]= "line_ChartOptions" chartType="LineChart" GoogleChart></div>
-	<div id="bubble_chart" [chartData]="bubble_ChartData"  [chartOptions] = "bubble_ChartOptions" chartType="BubbleChart" GoogleChart></div>
-     <div id="scatter_chart" [chartData]="scatter_ChartData"  [chartOptions] = "scatter_ChartOptions" chartType="ScatterChart" GoogleChart></div>
+    <h2>  Bubble Chart</h2>
+    <div id="bubble_chart" [chartData]="bubble_ChartData"  [chartOptions] = "bubble_ChartOptions" chartType="BubbleChart" GoogleChart></div>
+    <h2>  Scatter Chart</h2>
+    <div id="scatter_chart" [chartData]="scatter_ChartData"  [chartOptions] = "scatter_ChartOptions" chartType="ScatterChart" GoogleChart></div>
+    <h2>  CandlestickChart</h2>
     <div id="candle_chart" [chartData]="candle_ChartData" [chartOptions] = "candle_ChartOptions" chartType="CandlestickChart" GoogleChart></div>    
+    <h2>  Pie Chart</h2>
     <div id="pie_chart" [chartData]="pie_ChartData" [chartOptions] = "pie_ChartOptions" chartType="PieChart" GoogleChart></div> 
+    <h2>  Bar Chart</h2>
     <div id="bar_chart" [chartData]="bar_ChartData" [chartOptions] = "bar_ChartOptions" chartType="BarChart" GoogleChart></div>
 	
 	`    
@@ -130,5 +140,28 @@ export class AppComponent {
       title: 'My Daily Activities',
       width: 900,
       height: 500
+    };
+    public gauge_ChartData = [
+              ['Label', 'Value'],
+             ['Systolic', 120],
+             ['Diastolic', 80] ];
+    public gauge_ChartOptions = {
+          width: 400, height: 120,
+          redFrom: 90, redTo: 100,
+          yellowFrom:75, yellowTo: 90,
+          minorTicks: 5
+            };
+    public area_ChartData = [
+            ['Year', 'Sales', 'Expenses'],
+            ['2013',  1000,      400],
+            ['2014',  1170,      460],
+            ['2015',  660,       1120],
+            ['2016',  1030,      540]
+          ];
+
+    public area_ChartOptions = {
+      title: 'Company Performance',
+      hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+      vAxis: {minValue: 0}
     };
 }
