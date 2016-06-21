@@ -8,12 +8,14 @@ import {GoogleChart} from '../directives/angular2-google-chart.directive';
     selector : 'my-app',
     directives: [GoogleChart],
     template:  `
-    <div id="line_chart",[chartData]="line_ChartData", [chartOptions] = "line_ChartOptions",chartType="LineChart",GoogleChart/>
-    <div id="bubble_chart",[chartData]="bubble_ChartData", [chartOptions] = "bubble_ChartOptions",chartType="BubbleChart",GoogleChart/>
-    <div id="scatter_chart",[chartData]="scatter_ChartData", [chartOptions] = "scatter_ChartOptions",chartType="ScatterChart",GoogleChart/>
-    <div id="candle_chart",[chartData]="candle_ChartData", [chartOptions] = "candle_ChartOptions",chartType="CandlestickChart",GoogleChart/>    
-    <div id="pie_chart",[chartData]="pie_ChartData", [chartOptions] = "pie_ChartOptions",chartType="PieChart",GoogleChart/>    
-    <div id="bar_chart",[chartData]="bar_ChartData", [chartOptions] = "bar_ChartOptions",chartType="BarChart",GoogleChart/>`    
+    <div id="line_chart" [chartData]="line_ChartData" [chartOptions]= "line_ChartOptions" chartType="LineChart" GoogleChart></div>
+	<div id="bubble_chart" [chartData]="bubble_ChartData"  [chartOptions] = "bubble_ChartOptions" chartType="BubbleChart" GoogleChart></div>
+     <div id="scatter_chart" [chartData]="scatter_ChartData"  [chartOptions] = "scatter_ChartOptions" chartType="ScatterChart" GoogleChart></div>
+    <div id="candle_chart" [chartData]="candle_ChartData" [chartOptions] = "candle_ChartOptions" chartType="CandlestickChart" GoogleChart></div>    
+    <div id="pie_chart" [chartData]="pie_ChartData" [chartOptions] = "pie_ChartOptions" chartType="PieChart" GoogleChart></div> 
+    <div id="bar_chart" [chartData]="bar_ChartData" [chartOptions] = "bar_ChartOptions" chartType="BarChart" GoogleChart></div>
+	
+	`    
 })
 export class AppComponent {
    public line_ChartData = [
