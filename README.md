@@ -16,8 +16,8 @@ The sources for this package are in (https://github.com/vimalavinisha/angular2-g
         var googleLoaded = false;
         </script>
 ###2.component file use like below
-       import {Component} from 'angular2/core';
-       import {GoogleChart} from '../directives/angular2-google-chart.directive';
+      import {Component} from '@angular/core';
+      import {GoogleChart} from './directives/angular2-google-chart.directive';
        
        @Component({
            selector : 'my-app',

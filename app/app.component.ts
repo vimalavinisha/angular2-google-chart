@@ -1,9 +1,9 @@
 /* 
- * @author RAJAN G
+ * @author Vimala A
  */
 
-import {Component} from 'angular2/core';
-import {GoogleChart} from '../directives/angular2-google-chart.directive';
+import {Component} from '@angular/core';
+import {GoogleChart} from './directives/angular2-google-chart.directive';
 @Component({
     selector : 'my-app',
     directives: [GoogleChart],
