@@ -23,6 +23,13 @@ export class GoogleChart implements OnInit {
     google.charts.load('current', {'packages':['corechart', 'gauge']});
      }
     setTimeout(() =>this.drawGraph(this.chartOptions,this.chartType,this.chartData,this._element),1000);
+    this.redrawGraph();
+  }
+  redrawGraph(){
+      var self = this;
+      window.setInterval(function () {
+          self.drawGraph(self.chartOptions,self.chartType,self.chartData,self._element);
+      }, 10000);
   }
   drawGraph (chartOptions,chartType,chartData,ele) {
       google.charts.setOnLoadCallback(drawChart);
