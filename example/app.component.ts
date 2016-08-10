@@ -3,7 +3,7 @@
  */
 
 import {Component} from '@angular/core';
-import {GoogleChart} from './directives/angular2-google-chart.directive';
+import {GoogleChart} from '../directives/angular2-google-chart.directive';
 @Component({
     selector : 'my-app',
     directives: [GoogleChart],

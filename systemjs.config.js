@@ -5,22 +5,25 @@
 (function(global) {
   // map tells the System loader where to look for things
   var map = {
-    'app':                        '/app', // 'dist',
+    'app':                        '/example', // 'dist',
 //    'httpresource':               'node_modules/httpresource',
     '@angular':                   'node_modules/@angular',
-    'rxjs':                       'node_modules/rxjs'
+    'rxjs':                       'node_modules/rxjs',
+    'directives' : 'directives/'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
+    'directives':{ defaultExtension: 'js' } 
   };
   var ngPackageNames = [
     'common',
     'compiler',
     'core',
     'platform-browser',
-    'platform-browser-dynamic'
+    'platform-browser-dynamic',
+    'upgrade'
   ];
   // Individual files (~300 requests):
   function packIndex(pkgName) {

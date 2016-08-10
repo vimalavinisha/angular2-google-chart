@@ -3,11 +3,11 @@ declare var google:any;
 declare var googleLoaded:any;
 @Directive({
   selector: '[GoogleChart]',
-  properties: [
-      'chartType',
-      'chartOptions',
-      'chartData'
-    ]
+  // properties: [
+  //     'chartType',
+  //     'chartOptions',
+  //     'chartData'
+  //   ]
 })
 export class GoogleChart implements OnInit {
   public _element:any;

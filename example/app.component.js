@@ -1,7 +1,7 @@
 /*
- * @author RAJAN G
+ * @author Vimala A
  */
-System.register(['angular2/core', '../directives/angular2-google-chart.directive'], function(exports_1, context_1) {
+System.register(['@angular/core', '../directives/angular2-google-chart.directive'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -138,12 +138,34 @@ System.register(['angular2/core', '../directives/angular2-google-chart.directive
                         width: 900,
                         height: 500
                     };
+                    this.gauge_ChartData = [
+                        ['Label', 'Value'],
+                        ['Systolic', 120],
+                        ['Diastolic', 80]];
+                    this.gauge_ChartOptions = {
+                        width: 400, height: 120,
+                        redFrom: 90, redTo: 100,
+                        yellowFrom: 75, yellowTo: 90,
+                        minorTicks: 5
+                    };
+                    this.area_ChartData = [
+                        ['Year', 'Sales', 'Expenses'],
+                        ['2013', 1000, 400],
+                        ['2014', 1170, 460],
+                        ['2015', 660, 1120],
+                        ['2016', 1030, 540]
+                    ];
+                    this.area_ChartOptions = {
+                        title: 'Company Performance',
+                        hAxis: { title: 'Year', titleTextStyle: { color: '#333' } },
+                        vAxis: { minValue: 0 }
+                    };
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
                         directives: [angular2_google_chart_directive_1.GoogleChart],
-                        template: "\n    <div id=\"line_chart\" [chartData]=\"line_ChartData\" [chartOptions]= \"line_ChartOptions\" chartType=\"LineChart\" GoogleChart></div>\n\t<div id=\"bubble_chart\" [chartData]=\"bubble_ChartData\"  [chartOptions] = \"bubble_ChartOptions\" chartType=\"BubbleChart\" GoogleChart></div>\n     <div id=\"scatter_chart\" [chartData]=\"scatter_ChartData\"  [chartOptions] = \"scatter_ChartOptions\" chartType=\"ScatterChart\" GoogleChart></div>\n    <div id=\"candle_chart\" [chartData]=\"candle_ChartData\" [chartOptions] = \"candle_ChartOptions\" chartType=\"CandlestickChart\" GoogleChart></div>    \n    <div id=\"pie_chart\" [chartData]=\"pie_ChartData\" [chartOptions] = \"pie_ChartOptions\" chartType=\"PieChart\" GoogleChart></div> \n    <div id=\"bar_chart\" [chartData]=\"bar_ChartData\" [chartOptions] = \"bar_ChartOptions\" chartType=\"BarChart\" GoogleChart></div>\n\t\n\t"
+                        template: "\n    <h2>  Gaugh Chart</h2>\n    <div id=\"gauge_chart\" [chartData]=\"gauge_ChartData\" [chartOptions]= \"gauge_ChartOptions\" chartType=\"Gauge\" GoogleChart></div>\n    <h2>  Area Chart</h2>\n    <div id=\"area_chart\" [chartData]=\"area_ChartData\" [chartOptions]= \"area_ChartOptions\" chartType=\"AreaChart\" GoogleChart></div>\n    <h2>  Line Chart</h2>\n    <div id=\"line_chart\" [chartData]=\"line_ChartData\" [chartOptions]= \"line_ChartOptions\" chartType=\"LineChart\" GoogleChart></div>\n    <h2>  Bubble Chart</h2>\n    <div id=\"bubble_chart\" [chartData]=\"bubble_ChartData\"  [chartOptions] = \"bubble_ChartOptions\" chartType=\"BubbleChart\" GoogleChart></div>\n    <h2>  Scatter Chart</h2>\n    <div id=\"scatter_chart\" [chartData]=\"scatter_ChartData\"  [chartOptions] = \"scatter_ChartOptions\" chartType=\"ScatterChart\" GoogleChart></div>\n    <h2>  CandlestickChart</h2>\n    <div id=\"candle_chart\" [chartData]=\"candle_ChartData\" [chartOptions] = \"candle_ChartOptions\" chartType=\"CandlestickChart\" GoogleChart></div>    \n    <h2>  Pie Chart</h2>\n    <div id=\"pie_chart\" [chartData]=\"pie_ChartData\" [chartOptions] = \"pie_ChartOptions\" chartType=\"PieChart\" GoogleChart></div> \n    <h2>  Bar Chart</h2>\n    <div id=\"bar_chart\" [chartData]=\"bar_ChartData\" [chartOptions] = \"bar_ChartOptions\" chartType=\"BarChart\" GoogleChart></div>\n\t\n\t"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
