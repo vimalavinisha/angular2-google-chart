@@ -1,17 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "system",
-    "moduleResolution": "node",
-    "sourceMap": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "stripInternal": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "removeComments": false,
-    "noImplicitAny": false
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitOnError": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "outDir": "./dist/",
+    "rootDir": ".",
+    "sourceMap": true,
+    "mapRoot": "./",
+    "inlineSources": true,
+    "lib": ["es6", "dom"],
+    "target": "es5"
   },
-  "exclude": [
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts"
+  "files": [
+    "index.ts"
   ]
 }
+
