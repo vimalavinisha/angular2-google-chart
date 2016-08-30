@@ -1,7 +1,7 @@
 /*
  * @author Vimala A
  */
-System.register(['@angular/core', '../directives/angular2-google-chart.directive'], function(exports_1, context_1) {
+System.register(['@angular/core', '../src/directives/angular2-google-chart.directive'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -79,7 +79,8 @@ System.register(['@angular/core', '../directives/angular2-google-chart.directive
                     this.line_ChartOptions = {
                         title: 'Company Performance',
                         curveType: 'function',
-                        legend: { position: 'bottom'
+                        legend: {
+                            position: 'bottom'
                         }
                     };
                     this.bubble_ChartOptions = {
@@ -98,7 +99,8 @@ System.register(['@angular/core', '../directives/angular2-google-chart.directive
                         }
                     };
                     this.scatter_ChartOptions = {
-                        legend: { position: 'bottom'
+                        legend: {
+                            position: 'bottom'
                         },
                         title: 'Company Sales Percentage'
                     };
