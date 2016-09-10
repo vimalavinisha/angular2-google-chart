@@ -31,10 +31,9 @@ export class GoogleChart implements OnInit {
        wrapper = new google.visualization.ChartWrapper({
              chartType: chartType,
              dataTable:chartData ,
-             options:chartOptions || {},
-             containerId: ele.id
+             options:chartOptions || {}
            });
-      wrapper.draw();
+      wrapper.draw(ele);
     }
   }
 }
