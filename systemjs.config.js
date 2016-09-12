@@ -9,13 +9,13 @@
 //    'httpresource':               'node_modules/httpresource',
     '@angular':                   'node_modules/@angular',
     'rxjs':                       'node_modules/rxjs',
-    'directives' : 'directives/'
+    'angular2-google-chart':      './'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
-    'directives':{ defaultExtension: 'js' } 
+    'angular2-google-chart':      { defaultExtension: 'js' } 
   };
   var ngPackageNames = [
     'common',

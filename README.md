@@ -9,19 +9,31 @@ The sources for this package are in (https://github.com/vimalavinisha/angular2-g
       npm install angular2-google-chart
     bower install
       bower install google-chart
-###1.In index.html page include following script 
+###1. In index.html page include following script:
       <script src="https://www.gstatic.com/charts/loader.js"></script>
       <script>  
       !important: You want to give this variable(var googleLoaded = false;). This is used to run multiple chart in your jade.
         var googleLoaded = false;
         </script>
-###2.component file use like below
+###2. In app.module, import the included Angular2GoogleChartModule:
+      import { NgModule }       from '@angular/core';
+      import { BrowserModule  } from '@angular/platform-browser';
+      import { Angular2GoogleChartModule } from 'angular2-google-chart/angular2-google-chart';
+
+      import { AppComponent }   from './app.component';
+
+      @NgModule({
+          declarations: [AppComponent],
+          imports:      [BrowserModule, Angular2GoogleChartModule],
+          bootstrap:    [AppComponent]
+      })
+      export class AppModule {}
+
+###3. In your component file use like so:
       import {Component} from '@angular/core';
-      import {GoogleChart} from './directives/angular2-google-chart.directive';
-       
+
        @Component({
            selector : 'my-app',
-           directives: [GoogleChart],
            template:  `
            <div id="line_chart",[chartData]="line_ChartData", [chartOptions] = "line_ChartOptions",chartType="LineChart",GoogleChart/>
            <div id="bubble_chart",[chartData]="bubble_ChartData", [chartOptions] = "bubble_ChartOptions",chartType="BubbleChart",GoogleChart/>
@@ -145,5 +157,5 @@ The sources for this package are in (https://github.com/vimalavinisha/angular2-g
              height: 500
            };
        }
-###3 Example Charts
+###4. Example Charts:
       <img src="../app/assets/images/google-charts-output.png">
