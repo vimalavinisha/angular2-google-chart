@@ -1,6 +1,6 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
-import { Angular2GoogleChartModule } from '../angular2-google-chart.module';
+import { Angular2GoogleChartModule } from '../angular2-google-chart';
 
 import { AppComponent }   from './app.component';
 
