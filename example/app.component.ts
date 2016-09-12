@@ -1,12 +1,11 @@
-/* 
+/*
  * @author Vimala A
  */
 
 import {Component} from '@angular/core';
-import {GoogleChart} from '../directives/angular2-google-chart.directive';
+
 @Component({
     selector : 'my-app',
-    directives: [GoogleChart],
     template:  `
     <h2>  Gaugh Chart</h2>
     <div id="gauge_chart" [chartData]="gauge_ChartData" [chartOptions]= "gauge_ChartOptions" chartType="Gauge" GoogleChart></div>
@@ -19,13 +18,13 @@ import {GoogleChart} from '../directives/angular2-google-chart.directive';
     <h2>  Scatter Chart</h2>
     <div id="scatter_chart" [chartData]="scatter_ChartData"  [chartOptions] = "scatter_ChartOptions" chartType="ScatterChart" GoogleChart></div>
     <h2>  CandlestickChart</h2>
-    <div id="candle_chart" [chartData]="candle_ChartData" [chartOptions] = "candle_ChartOptions" chartType="CandlestickChart" GoogleChart></div>    
+    <div id="candle_chart" [chartData]="candle_ChartData" [chartOptions] = "candle_ChartOptions" chartType="CandlestickChart" GoogleChart></div>
     <h2>  Pie Chart</h2>
-    <div id="pie_chart" [chartData]="pie_ChartData" [chartOptions] = "pie_ChartOptions" chartType="PieChart" GoogleChart></div> 
+    <div id="pie_chart" [chartData]="pie_ChartData" [chartOptions] = "pie_ChartOptions" chartType="PieChart" GoogleChart></div>
     <h2>  Bar Chart</h2>
     <div id="bar_chart" [chartData]="bar_ChartData" [chartOptions] = "bar_ChartOptions" chartType="BarChart" GoogleChart></div>
-	
-	`    
+
+	`
 })
 export class AppComponent {
    public line_ChartData = [
