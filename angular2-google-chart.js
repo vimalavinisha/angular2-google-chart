@@ -37,4 +37,4 @@ System.register(['@angular/core', './directives/angular2-google-chart.directive'
         }
     }
 });
-//# sourceMappingURL=angular2-google-chart.module.js.map
+//# sourceMappingURL=angular2-google-chart.js.map
