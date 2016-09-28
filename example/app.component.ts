@@ -3,10 +3,8 @@
  */
 
 import {Component} from '@angular/core';
-import {GoogleChart} from '../directives/angular2-google-chart.directive';
 @Component({
     selector : 'my-app',
-    directives: [GoogleChart],
     template:  `
     <h2>  Gaugh Chart</h2>
     <div id="gauge_chart" [chartData]="gauge_ChartData" [chartOptions]= "gauge_ChartOptions" chartType="Gauge" GoogleChart></div>
