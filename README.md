@@ -140,7 +140,7 @@ The sources for this package are in (https://github.com/vimalavinisha/angular2-g
                   }
                 };
            public pie_ChartOptions  = {
-             title: 'My Daily Activities'
+             title: 'My Daily Activities',
              width: 900,
              height: 500
            };
