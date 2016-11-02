@@ -1,4 +1,4 @@
-import {Directive,ElementRef,Input,OnInit} from '@angular/core';
+import {Directive,ElementRef,Input,OnInit,OnChanges} from '@angular/core';
 declare var google:any;
 declare var googleLoaded:any;
 @Directive({
@@ -9,7 +9,7 @@ declare var googleLoaded:any;
   //     'chartData'
   //   ]
 })
-export class GoogleChart implements OnInit {
+export class GoogleChart implements OnInit,OnChanges {
   public _element:any;
   @Input('chartType') public chartType:string;
   @Input('chartOptions') public chartOptions: Object;
@@ -22,8 +22,14 @@ export class GoogleChart implements OnInit {
       googleLoaded = true;
     google.charts.load('current', {'packages':['corechart', 'gauge']});
      }
-    setTimeout(() =>this.drawGraph(this.chartOptions,this.chartType,this.chartData,this._element),1000);
   }
+  
+   ngOnChanges() {
+    if (googleLoaded) {
+      this.drawGraph(this.chartOptions, this.chartType, this.chartData, this._element);
+    }
+  }
+  
   drawGraph (chartOptions,chartType,chartData,ele) {
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
