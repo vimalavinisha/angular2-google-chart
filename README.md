@@ -4,7 +4,7 @@ The sources for this package are in (<https://github.com/vimalavinisha/angular2-
 
 ## Demo Output
 
-![angular2-google-chart-v1 0 5](https://cloud.githubusercontent.com/assets/11042288/16228824/f30a4436-37d6-11e6-8d05-bdc8bc090fcc.png)
+![angular2-google-chart-v1 0 5](https://github.com/martinmanzo/angular2-google-chart/blob/master/example/assets/images/google-charts-output.png?raw=true)
 
 ## Usage
 
