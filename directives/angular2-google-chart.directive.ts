@@ -1,3 +1,4 @@
+
 import {Directive, ElementRef, Input, OnInit} from '@angular/core';
 declare var google: any;
 declare var googleLoaded: any;
@@ -10,6 +11,7 @@ declare var googleChartsPackagesToLoad: any;
     //     'chartData'
     //   ]
 })
+
 export class GoogleChart implements OnInit {
     public _element: any;
     @Input('chartType') public chartType: string;
