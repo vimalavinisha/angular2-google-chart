@@ -1,14 +1,17 @@
-import {Directive,ElementRef,Input,OnInit} from '@angular/core';
-declare var google:any;
-declare var googleLoaded:any;
+
+import {Directive, ElementRef, Input, OnInit} from '@angular/core';
+declare var google: any;
+declare var googleLoaded: any;
+declare var googleChartsPackagesToLoad: any;
 @Directive({
-  selector: '[GoogleChart]',
-  // properties: [
-  //     'chartType',
-  //     'chartOptions',
-  //     'chartData'
-  //   ]
+    selector: '[GoogleChart]',
+    // properties: [
+    //     'chartType',
+    //     'chartOptions',
+    //     'chartData'
+    //   ]
 })
+
 export class GoogleChart implements OnInit {
   public _element:any;
   @Input('chartType') public chartType:string;
@@ -34,7 +37,6 @@ export class GoogleChart implements OnInit {
              options:chartOptions || {}
            });
       wrapper.draw(ele);
-    }
-  }
-}
 
+    }
+}
