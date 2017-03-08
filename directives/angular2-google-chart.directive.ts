@@ -1,6 +1,8 @@
-import {Directive, ElementRef, Input, OnInit, OnChanges} from '@angular/core';
-declare var google:any;
-declare var googleLoaded:any;
+
+import {Directive, ElementRef, Input, OnInit} from '@angular/core';
+declare var google: any;
+declare var googleLoaded: any;
+declare var googleChartsPackagesToLoad: any;
 @Directive({
     selector: '[GoogleChart]',
     // properties: [
@@ -9,38 +11,33 @@ declare var googleLoaded:any;
     //     'chartData'
     //   ]
 })
-export class GoogleChart implements OnInit, OnChanges {
-    public _element:any;
-    @Input('chartType') public chartType:string;
+
+export class GoogleChart implements OnInit {
+    public _element: any;
+    @Input('chartType') public chartType: string;
     @Input('chartOptions') public chartOptions: Object;
     @Input('chartData') public chartData: Object;
     constructor(public element: ElementRef) {
         this._element = this.element.nativeElement;
     }
-
     ngOnInit() {
-        if(!googleLoaded) {
+        if (!googleLoaded) {
             googleLoaded = true;
-            google.charts.load('current', {'packages':['corechart', 'gauge']});
+            google.charts.load('current', { 'packages': googleChartsPackagesToLoad });
         }
-        setTimeout(() => this.drawGraph(this.chartOptions,this.chartType,this.chartData,this._element),1000);
+        setTimeout(() => this.drawGraph(this.chartOptions, this.chartType, this.chartData, this._element), 1000);
     }
-
-    ngOnChanges(changes) {
-        this.drawGraph(this.chartOptions,this.chartType,this.chartData,this._element);
-    }
-
-    drawGraph (chartOptions,chartType,chartData,ele) {
+    drawGraph(chartOptions, chartType, chartData, ele) {
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
-            var wrapper = new google.visualization.ChartWrapper({
+            var wrapper;
+            wrapper = new google.visualization.ChartWrapper({
                 chartType: chartType,
-                dataTable:chartData ,
-                options:chartOptions || {},
+                dataTable: chartData,
+                options: chartOptions || {},
                 containerId: ele.id
             });
             wrapper.draw();
         }
     }
 }
-

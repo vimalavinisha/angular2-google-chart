@@ -27,7 +27,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     var _this = this;
                     if (!googleLoaded) {
                         googleLoaded = true;
-                        google.charts.load('current', { 'packages': ['corechart', 'gauge'] });
+                        google.charts.load('current', { 'packages': googleChartsPackagesToLoad });
                     }
                     setTimeout(function () { return _this.drawGraph(_this.chartOptions, _this.chartType, _this.chartData, _this._element); }, 1000);
                 };
@@ -60,9 +60,10 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     core_1.Directive({
                         selector: '[GoogleChart]',
                     }), 
-                    __metadata('design:paramtypes', [core_1.ElementRef])
+                    __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
                 ], GoogleChart);
                 return GoogleChart;
+                var _a;
             }());
             exports_1("GoogleChart", GoogleChart);
         }
