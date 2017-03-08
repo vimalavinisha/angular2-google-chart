@@ -73,10 +73,20 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                         ['Chicago, IL', 2695000, 2896000],
                         ['Houston, TX', 2099000, 1953000],
                         ['Philadelphia, PA', 1526000, 1517000]];
+                    this.map_ChartData = [
+                        ['Country', 'Popularity'],
+                        ['Germany', 200],
+                        ['United States', 300],
+                        ['Brazil', 400],
+                        ['Canada', 500],
+                        ['France', 600],
+                        ['RU', 700]
+                    ];
                     this.line_ChartOptions = {
                         title: 'Company Performance',
                         curveType: 'function',
-                        legend: { position: 'bottom'
+                        legend: {
+                            position: 'bottom'
                         }
                     };
                     this.bubble_ChartOptions = {
@@ -95,7 +105,8 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                         }
                     };
                     this.scatter_ChartOptions = {
-                        legend: { position: 'bottom'
+                        legend: {
+                            position: 'bottom'
                         },
                         title: 'Company Sales Percentage'
                     };
@@ -157,11 +168,12 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                         hAxis: { title: 'Year', titleTextStyle: { color: '#333' } },
                         vAxis: { minValue: 0 }
                     };
+                    this.map_ChartOptions = {};
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <h2>  Gaugh Chart</h2>\n    <div id=\"gauge_chart\" [chartData]=\"gauge_ChartData\" [chartOptions]= \"gauge_ChartOptions\" chartType=\"Gauge\" GoogleChart></div>\n    <h2>  Area Chart</h2>\n    <div id=\"area_chart\" [chartData]=\"area_ChartData\" [chartOptions]= \"area_ChartOptions\" chartType=\"AreaChart\" GoogleChart></div>\n    <h2>  Line Chart</h2>\n    <div id=\"line_chart\" [chartData]=\"line_ChartData\" [chartOptions]= \"line_ChartOptions\" chartType=\"LineChart\" GoogleChart></div>\n    <h2>  Bubble Chart</h2>\n    <div id=\"bubble_chart\" [chartData]=\"bubble_ChartData\"  [chartOptions] = \"bubble_ChartOptions\" chartType=\"BubbleChart\" GoogleChart></div>\n    <h2>  Scatter Chart</h2>\n    <div id=\"scatter_chart\" [chartData]=\"scatter_ChartData\"  [chartOptions] = \"scatter_ChartOptions\" chartType=\"ScatterChart\" GoogleChart></div>\n    <h2>  CandlestickChart</h2>\n    <div id=\"candle_chart\" [chartData]=\"candle_ChartData\" [chartOptions] = \"candle_ChartOptions\" chartType=\"CandlestickChart\" GoogleChart></div>    \n    <h2>  Pie Chart</h2>\n    <div id=\"pie_chart\" [chartData]=\"pie_ChartData\" [chartOptions] = \"pie_ChartOptions\" chartType=\"PieChart\" GoogleChart></div> \n    <h2>  Bar Chart</h2>\n    <div id=\"bar_chart\" [chartData]=\"bar_ChartData\" [chartOptions] = \"bar_ChartOptions\" chartType=\"BarChart\" GoogleChart></div>\n\t\n\t"
+                        template: "\n    <h2>  Gaugh Chart</h2>\n    <div id=\"gauge_chart\" [chartData]=\"gauge_ChartData\" [chartOptions]= \"gauge_ChartOptions\" chartType=\"Gauge\" GoogleChart></div>\n    <h2>  Area Chart</h2>\n    <div id=\"area_chart\" [chartData]=\"area_ChartData\" [chartOptions]= \"area_ChartOptions\" chartType=\"AreaChart\" GoogleChart></div>\n    <h2>  Line Chart</h2>\n    <div id=\"line_chart\" [chartData]=\"line_ChartData\" [chartOptions]= \"line_ChartOptions\" chartType=\"LineChart\" GoogleChart></div>\n    <h2>  Bubble Chart</h2>\n    <div id=\"bubble_chart\" [chartData]=\"bubble_ChartData\"  [chartOptions] = \"bubble_ChartOptions\" chartType=\"BubbleChart\" GoogleChart></div>\n    <h2>  Scatter Chart</h2>\n    <div id=\"scatter_chart\" [chartData]=\"scatter_ChartData\"  [chartOptions] = \"scatter_ChartOptions\" chartType=\"ScatterChart\" GoogleChart></div>\n    <h2>  CandlestickChart</h2>\n    <div id=\"candle_chart\" [chartData]=\"candle_ChartData\" [chartOptions] = \"candle_ChartOptions\" chartType=\"CandlestickChart\" GoogleChart></div>\n    <h2>  Pie Chart</h2>\n    <div id=\"pie_chart\" [chartData]=\"pie_ChartData\" [chartOptions] = \"pie_ChartOptions\" chartType=\"PieChart\" GoogleChart></div>\n    <h2>  Bar Chart</h2>\n    <div id=\"bar_chart\" [chartData]=\"bar_ChartData\" [chartOptions] = \"bar_ChartOptions\" chartType=\"BarChart\" GoogleChart></div>\n    <h2>  Map Chart</h2>\n    <div id=\"map_chart\" [chartData]=\"map_ChartData\" [chartOptions] = \"map_ChartOptions\" chartType=\"GeoChart\" GoogleChart></div>\n\n\t"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
