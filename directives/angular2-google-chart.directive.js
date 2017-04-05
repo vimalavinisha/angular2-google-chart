@@ -23,11 +23,11 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     this.element = element;
                     this._element = this.element.nativeElement;
                 }
-                GoogleChart.prototype.ngOnInit = function () {
+                GoogleChart.prototype.ngOnChanges = function () {
                     var _this = this;
                     if (!googleLoaded) {
                         googleLoaded = true;
-                        google.charts.load('current', { 'packages': googleChartsPackagesToLoad });
+                        google.charts.load('current', { 'packages': ['corechart', 'gauge'] });
                     }
                     setTimeout(function () { return _this.drawGraph(_this.chartOptions, _this.chartType, _this.chartData, _this._element); }, 1000);
                 };
@@ -38,10 +38,9 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                         wrapper = new google.visualization.ChartWrapper({
                             chartType: chartType,
                             dataTable: chartData,
-                            options: chartOptions || {},
-                            containerId: ele.id
+                            options: chartOptions || {}
                         });
-                        wrapper.draw();
+                        wrapper.draw(ele);
                     }
                 };
                 __decorate([
@@ -60,10 +59,9 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     core_1.Directive({
                         selector: '[GoogleChart]',
                     }), 
-                    __metadata('design:paramtypes', [(typeof (_a = typeof core_1.ElementRef !== 'undefined' && core_1.ElementRef) === 'function' && _a) || Object])
+                    __metadata('design:paramtypes', [core_1.ElementRef])
                 ], GoogleChart);
                 return GoogleChart;
-                var _a;
             }());
             exports_1("GoogleChart", GoogleChart);
         }

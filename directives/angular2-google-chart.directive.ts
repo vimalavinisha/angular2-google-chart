@@ -20,7 +20,7 @@ export class GoogleChart implements OnInit {
   constructor(public element: ElementRef) {
     this._element = this.element.nativeElement;
   }
-  ngOnInit() {
+  ngOnChanges() {
     if(!googleLoaded) {
       googleLoaded = true;
     google.charts.load('current', {'packages':['corechart', 'gauge']});
@@ -39,4 +39,5 @@ export class GoogleChart implements OnInit {
       wrapper.draw(ele);
 
     }
+}
 }
