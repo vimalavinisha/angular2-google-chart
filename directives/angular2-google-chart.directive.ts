@@ -27,6 +27,16 @@ export class GoogleChart implements OnInit {
      }
     setTimeout(() =>this.drawGraph(this.chartOptions,this.chartType,this.chartData,this._element),1000);
   }
+    ngOnInit() {
+        setTimeout(() => {
+            google.charts.load('current', {
+                'packages': ['corechart']
+            });
+            setTimeout(() => {
+                this.drawGraph(this.chartOptions, this.chartType, this.chartData, this._element)
+            }, 1000);
+        }, 1000);
+    }
   drawGraph (chartOptions,chartType,chartData,ele) {
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
