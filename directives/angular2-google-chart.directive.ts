@@ -1,5 +1,5 @@
 
-import {Directive, ElementRef, Input, OnInit} from '@angular/core';
+import {Directive, ElementRef, Input, OnChanges} from '@angular/core';
 declare var google: any;
 declare var googleLoaded: any;
 declare var googleChartsPackagesToLoad: any;
@@ -12,7 +12,7 @@ declare var googleChartsPackagesToLoad: any;
     //   ]
 })
 
-export class GoogleChart implements OnInit {
+export class GoogleChart implements OnChanges {
   public _element:any;
   @Input('chartType') public chartType:string;
   @Input('chartOptions') public chartOptions: Object;
