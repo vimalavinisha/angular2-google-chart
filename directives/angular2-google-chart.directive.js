@@ -1,6 +1,5 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(["@angular/core"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,14 +9,15 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var GoogleChart;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, GoogleChart;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {
             GoogleChart = (function () {
                 function GoogleChart(element) {
                     this.element = element;
@@ -43,28 +43,28 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                         wrapper.draw(ele);
                     }
                 };
-                __decorate([
-                    core_1.Input('chartType'), 
-                    __metadata('design:type', String)
-                ], GoogleChart.prototype, "chartType", void 0);
-                __decorate([
-                    core_1.Input('chartOptions'), 
-                    __metadata('design:type', Object)
-                ], GoogleChart.prototype, "chartOptions", void 0);
-                __decorate([
-                    core_1.Input('chartData'), 
-                    __metadata('design:type', Object)
-                ], GoogleChart.prototype, "chartData", void 0);
-                GoogleChart = __decorate([
-                    core_1.Directive({
-                        selector: '[GoogleChart]',
-                    }), 
-                    __metadata('design:paramtypes', [core_1.ElementRef])
-                ], GoogleChart);
                 return GoogleChart;
             }());
+            __decorate([
+                core_1.Input('chartType'),
+                __metadata("design:type", String)
+            ], GoogleChart.prototype, "chartType", void 0);
+            __decorate([
+                core_1.Input('chartOptions'),
+                __metadata("design:type", Object)
+            ], GoogleChart.prototype, "chartOptions", void 0);
+            __decorate([
+                core_1.Input('chartData'),
+                __metadata("design:type", Object)
+            ], GoogleChart.prototype, "chartData", void 0);
+            GoogleChart = __decorate([
+                core_1.Directive({
+                    selector: '[GoogleChart]',
+                }),
+                __metadata("design:paramtypes", [core_1.ElementRef])
+            ], GoogleChart);
             exports_1("GoogleChart", GoogleChart);
         }
-    }
+    };
 });
 //# sourceMappingURL=angular2-google-chart.directive.js.map

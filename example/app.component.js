@@ -1,26 +1,25 @@
 /*
  * @author Vimala A
  */
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(["@angular/core"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-    var core_1;
-    var AppComponent;
+    var __moduleName = context_1 && context_1.id;
+    var core_1, AppComponent;
     return {
-        setters:[
+        setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
-            }],
-        execute: function() {
+            }
+        ],
+        execute: function () {/*
+             * @author Vimala A
+             */
             AppComponent = (function () {
                 function AppComponent() {
                     this.line_ChartData = [
@@ -28,7 +27,8 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                         ['2004', 1000, 400],
                         ['2005', 1170, 460],
                         ['2006', 660, 1120],
-                        ['2007', 1030, 540]];
+                        ['2007', 1030, 540]
+                    ];
                     this.bubble_ChartData = [
                         ['ID', 'Life Expectancy', 'Fertility Rate', 'Region', 'Population'],
                         ['CAN', 80.66, 1.67, 'North America', 33739900],
@@ -40,7 +40,8 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                         ['IRQ', 68.09, 4.77, 'Middle East', 31090763],
                         ['ISR', 81.55, 2.96, 'Middle East', 7485600],
                         ['RUS', 68.6, 1.54, 'Europe', 141850000],
-                        ['USA', 78.09, 2.05, 'North America', 307007000]];
+                        ['USA', 78.09, 2.05, 'North America', 307007000]
+                    ];
                     this.scatter_ChartData = [
                         ['Date', 'Sales Percentage'],
                         [new Date(2016, 3, 22), 78],
@@ -65,14 +66,16 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                         ['Eat', 2],
                         ['Commute', 2],
                         ['Watch TV', 2],
-                        ['Sleep', 7]];
+                        ['Sleep', 7]
+                    ];
                     this.bar_ChartData = [
                         ['City', '2010 Population', '2000 Population'],
                         ['New York City, NY', 8175000, 8008000],
                         ['Los Angeles, CA', 3792000, 3694000],
                         ['Chicago, IL', 2695000, 2896000],
                         ['Houston, TX', 2099000, 1953000],
-                        ['Philadelphia, PA', 1526000, 1517000]];
+                        ['Philadelphia, PA', 1526000, 1517000]
+                    ];
                     this.map_ChartData = [
                         ['Country', 'Popularity'],
                         ['Germany', 200],
@@ -149,7 +152,8 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     this.gauge_ChartData = [
                         ['Label', 'Value'],
                         ['Systolic', 120],
-                        ['Diastolic', 80]];
+                        ['Diastolic', 80]
+                    ];
                     this.gauge_ChartOptions = {
                         width: 400, height: 120,
                         redFrom: 90, redTo: 100,
@@ -170,17 +174,16 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     };
                     this.map_ChartOptions = {};
                 }
-                AppComponent = __decorate([
-                    core_1.Component({
-                        selector: 'my-app',
-                        template: "\n    <h2>  Gaugh Chart</h2>\n    <div id=\"gauge_chart\" [chartData]=\"gauge_ChartData\" [chartOptions]= \"gauge_ChartOptions\" chartType=\"Gauge\" GoogleChart></div>\n    <h2>  Area Chart</h2>\n    <div id=\"area_chart\" [chartData]=\"area_ChartData\" [chartOptions]= \"area_ChartOptions\" chartType=\"AreaChart\" GoogleChart></div>\n    <h2>  Line Chart</h2>\n    <div id=\"line_chart\" [chartData]=\"line_ChartData\" [chartOptions]= \"line_ChartOptions\" chartType=\"LineChart\" GoogleChart></div>\n    <h2>  Bubble Chart</h2>\n    <div id=\"bubble_chart\" [chartData]=\"bubble_ChartData\"  [chartOptions] = \"bubble_ChartOptions\" chartType=\"BubbleChart\" GoogleChart></div>\n    <h2>  Scatter Chart</h2>\n    <div id=\"scatter_chart\" [chartData]=\"scatter_ChartData\"  [chartOptions] = \"scatter_ChartOptions\" chartType=\"ScatterChart\" GoogleChart></div>\n    <h2>  CandlestickChart</h2>\n    <div id=\"candle_chart\" [chartData]=\"candle_ChartData\" [chartOptions] = \"candle_ChartOptions\" chartType=\"CandlestickChart\" GoogleChart></div>\n    <h2>  Pie Chart</h2>\n    <div id=\"pie_chart\" [chartData]=\"pie_ChartData\" [chartOptions] = \"pie_ChartOptions\" chartType=\"PieChart\" GoogleChart></div>\n    <h2>  Bar Chart</h2>\n    <div id=\"bar_chart\" [chartData]=\"bar_ChartData\" [chartOptions] = \"bar_ChartOptions\" chartType=\"BarChart\" GoogleChart></div>\n    <h2>  Map Chart</h2>\n    <div id=\"map_chart\" [chartData]=\"map_ChartData\" [chartOptions] = \"map_ChartOptions\" chartType=\"GeoChart\" GoogleChart></div>\n\n\t"
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], AppComponent);
                 return AppComponent;
             }());
+            AppComponent = __decorate([
+                core_1.Component({
+                    selector: 'my-app',
+                    template: "\n    <h2>  Gaugh Chart</h2>\n    <div id=\"gauge_chart\" [chartData]=\"gauge_ChartData\" [chartOptions]= \"gauge_ChartOptions\" chartType=\"Gauge\" GoogleChart></div>\n    <h2>  Area Chart</h2>\n    <div id=\"area_chart\" [chartData]=\"area_ChartData\" [chartOptions]= \"area_ChartOptions\" chartType=\"AreaChart\" GoogleChart></div>\n    <h2>  Line Chart</h2>\n    <div id=\"line_chart\" [chartData]=\"line_ChartData\" [chartOptions]= \"line_ChartOptions\" chartType=\"LineChart\" GoogleChart></div>\n    <h2>  Bubble Chart</h2>\n    <div id=\"bubble_chart\" [chartData]=\"bubble_ChartData\"  [chartOptions] = \"bubble_ChartOptions\" chartType=\"BubbleChart\" GoogleChart></div>\n    <h2>  Scatter Chart</h2>\n    <div id=\"scatter_chart\" [chartData]=\"scatter_ChartData\"  [chartOptions] = \"scatter_ChartOptions\" chartType=\"ScatterChart\" GoogleChart></div>\n    <h2>  CandlestickChart</h2>\n    <div id=\"candle_chart\" [chartData]=\"candle_ChartData\" [chartOptions] = \"candle_ChartOptions\" chartType=\"CandlestickChart\" GoogleChart></div>\n    <h2>  Pie Chart</h2>\n    <div id=\"pie_chart\" [chartData]=\"pie_ChartData\" [chartOptions] = \"pie_ChartOptions\" chartType=\"PieChart\" GoogleChart></div>\n    <h2>  Bar Chart</h2>\n    <div id=\"bar_chart\" [chartData]=\"bar_ChartData\" [chartOptions] = \"bar_ChartOptions\" chartType=\"BarChart\" GoogleChart></div>\n    <h2>  Map Chart</h2>\n    <div id=\"map_chart\" [chartData]=\"map_ChartData\" [chartOptions] = \"map_ChartOptions\" chartType=\"GeoChart\" GoogleChart></div>\n\n\t"
+                })
+            ], AppComponent);
             exports_1("AppComponent", AppComponent);
         }
-    }
+    };
 });
 //# sourceMappingURL=app.component.js.map
