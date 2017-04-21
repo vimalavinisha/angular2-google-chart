@@ -1,5 +1,7 @@
-# Angular2
-
+# Angular2/ Angular 4
+```
+This module supports Both angular 2 and angular 4 versions
+``` 
 The sources for this package are in (<https://github.com/vimalavinisha/angular2-google-chart>) repo. Please file issues and pull requests against this repo.
 
 ## Demo Output
