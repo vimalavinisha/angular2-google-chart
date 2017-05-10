@@ -6,7 +6,7 @@ The sources for this package are in (<https://github.com/vimalavinisha/angular2-
 
 ## Demo Output
 
-![google-chart-output](https://cloud.githubusercontent.com/assets/11042288/25892605/7cc54194-3592-11e7-942c-4f334c2f302e.png)
+![google-chart-op](https://cloud.githubusercontent.com/assets/11042288/25892861/5c489e74-3593-11e7-8384-d6e48c6b2bf1.png)
 ## Usage
 
 ```
