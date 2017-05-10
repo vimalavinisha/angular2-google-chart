@@ -24,6 +24,8 @@ import {Component} from '@angular/core';
     <div id="bar_chart" [chartData]="bar_ChartData" [chartOptions] = "bar_ChartOptions" chartType="BarChart" GoogleChart></div>
     <h2>  Map Chart</h2>
     <div id="map_chart" [chartData]="map_ChartData" [chartOptions] = "map_ChartOptions" chartType="GeoChart" GoogleChart></div>
+    <h2>  Organization Chart</h2>
+    <div id="org_chart" [chartData]="org_ChartData" [chartOptions] = "org_ChartOptions" chartType="OrgChart" GoogleChart></div>
 
 	`
 })
@@ -86,6 +88,16 @@ export class AppComponent {
         ['Canada', 500],
         ['France', 600],
         ['RU', 700]
+    ];
+     public org_ChartData = [
+        ['Name', 'Manager', 'ToolTip'],
+         [{v:'Mike', f:'Mike<div style="color:red; font-style:italic">President</div>'},
+           '', 'The President'],
+          [{v:'Jim', f:'Jim<div style="color:red; font-style:italic">Vice President</div>'},
+           'Mike', 'VP'],
+          ['Alice', 'Mike', ''],
+          ['Bob', 'Jim', 'Bob Sponge'],
+          ['Carol', 'Bob', '']
     ];
     public line_ChartOptions = {
         title: 'Company Performance',
@@ -176,4 +188,7 @@ export class AppComponent {
         vAxis: { minValue: 0 }
     };
     public map_ChartOptions = {};
+    public org_ChartOptions = {
+        allowHtml:true
+    };
 }

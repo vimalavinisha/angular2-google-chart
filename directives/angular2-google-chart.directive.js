@@ -27,7 +27,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var _this = this;
                     if (!googleLoaded) {
                         googleLoaded = true;
-                        google.charts.load('current', { 'packages': ['corechart', 'gauge'] });
+                        google.charts.load('current', { 'packages': ['corechart', 'gauge']['orgchart'] });
                     }
                     setTimeout(function () { return _this.drawGraph(_this.chartOptions, _this.chartType, _this.chartData, _this._element); }, 1000);
                 };

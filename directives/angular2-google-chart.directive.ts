@@ -23,7 +23,7 @@ export class GoogleChart implements OnChanges {
   ngOnChanges() {
     if(!googleLoaded) {
       googleLoaded = true;
-    google.charts.load('current', {'packages':['corechart', 'gauge']});
+    google.charts.load('current', {'packages':['corechart', 'gauge']['orgchart']});
      }
     setTimeout(() =>this.drawGraph(this.chartOptions,this.chartType,this.chartData,this._element),1000);
   }
