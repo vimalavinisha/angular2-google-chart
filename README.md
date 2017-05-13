@@ -223,7 +223,20 @@ export class AppComponent {
 }
 ```
 
-### 3 Example Charts
+### 3 In app.module.ts, make the following additions
+
+```
+import {GoogleChart} from 'angular2-google-chart/directives/angular2-google-chart.directive';
+```
+```
+@NgModule({
+  declarations: [
+    AppComponent,
+    GoogleChart
+  ],...
+```
+
+### 4 Example Charts
 
 ```
 <img src="../app/assets/images/google-charts-output.png">
