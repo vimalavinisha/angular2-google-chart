@@ -1,6 +1,6 @@
 {
   "name": "angular2-google-chart",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "google chart directive for angular2",
   "main": "index.js",
   "dependencies": {
@@ -23,7 +23,7 @@
     "tsc:w": "tsc -w",
     "lite": "lite-server",
     "typings": "typings",
-    "postinstall": "typings install"
+    "prepublish": "typings install"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
