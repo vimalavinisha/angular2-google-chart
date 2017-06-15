@@ -59,7 +59,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             ], GoogleChart.prototype, "chartData", void 0);
             GoogleChart = __decorate([
                 core_1.Directive({
-                    selector: '[GoogleChart]',
+                    selector: '[GoogleChart]'
                 }),
                 __metadata("design:paramtypes", [core_1.ElementRef])
             ], GoogleChart);
