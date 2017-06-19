@@ -21,6 +21,9 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             GoogleChart = (function () {
                 function GoogleChart(element) {
                     this.element = element;
+                    this.loadingDelay = 0;
+                    this.itemSelect = new core_1.EventEmitter();
+                    this.itemDeselect = new core_1.EventEmitter();
                     this._element = this.element.nativeElement;
                 }
                 GoogleChart.prototype.ngOnChanges = function () {
@@ -29,18 +32,43 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         googleLoaded = true;
                         google.charts.load('current', { 'packages': ['corechart', 'gauge']['orgchart'] });
                     }
-                    setTimeout(function () { return _this.drawGraph(_this.chartOptions, _this.chartType, _this.chartData, _this._element); }, 1000);
+                    setTimeout(function () { return _this.drawGraph(_this.chartOptions, _this.chartType, _this.chartData, _this._element); }, this.loadingDelay);
+                };
+                GoogleChart.prototype.onResize = function (event) {
+                    this.drawGraph(this.chartOptions, this.chartType, this.chartData, this._element);
                 };
                 GoogleChart.prototype.drawGraph = function (chartOptions, chartType, chartData, ele) {
                     google.charts.setOnLoadCallback(drawChart);
+                    var self = this;
                     function drawChart() {
-                        var wrapper;
-                        wrapper = new google.visualization.ChartWrapper({
+                        var wrapper = new google.visualization.ChartWrapper({
                             chartType: chartType,
                             dataTable: chartData,
                             options: chartOptions || {}
                         });
                         wrapper.draw(ele);
+                        google.visualization.events.addListener(wrapper, 'select', function () {
+                            var selectedItem = wrapper.getChart().getSelection()[0];
+                            if (selectedItem) {
+                                var msg = void 0;
+                                if (selectedItem !== undefined) {
+                                    var selectedRowValues = [];
+                                    if (selectedItem.row !== null) {
+                                        selectedRowValues.push(wrapper.getDataTable().getValue(selectedItem.row, 0));
+                                        selectedRowValues.push(wrapper.getDataTable().getValue(selectedItem.row, selectedItem.column));
+                                        msg = {
+                                            message: 'select',
+                                            row: selectedItem.row,
+                                            column: selectedItem.column,
+                                            selectedRowValues: selectedRowValues
+                                        };
+                                    }
+                                }
+                                self.itemSelect.emit(msg);
+                            }
+                            else
+                                self.itemDeselect.emit();
+                        });
                     }
                 };
                 return GoogleChart;
@@ -54,9 +82,27 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                 __metadata("design:type", Object)
             ], GoogleChart.prototype, "chartOptions", void 0);
             __decorate([
+                core_1.Input('loadingDelay'),
+                __metadata("design:type", Object)
+            ], GoogleChart.prototype, "loadingDelay", void 0);
+            __decorate([
                 core_1.Input('chartData'),
                 __metadata("design:type", Object)
             ], GoogleChart.prototype, "chartData", void 0);
+            __decorate([
+                core_1.Output('itemSelect'),
+                __metadata("design:type", core_1.EventEmitter)
+            ], GoogleChart.prototype, "itemSelect", void 0);
+            __decorate([
+                core_1.Output('itemDeselect'),
+                __metadata("design:type", core_1.EventEmitter)
+            ], GoogleChart.prototype, "itemDeselect", void 0);
+            __decorate([
+                core_1.HostListener('window:resize'),
+                __metadata("design:type", Function),
+                __metadata("design:paramtypes", [Event]),
+                __metadata("design:returntype", void 0)
+            ], GoogleChart.prototype, "onResize", null);
             GoogleChart = __decorate([
                 core_1.Directive({
                     selector: '[GoogleChart]'

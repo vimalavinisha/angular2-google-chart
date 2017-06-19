@@ -9,23 +9,23 @@ import {Component} from '@angular/core';
     <h2>  Gaugh Chart</h2>
     <div id="gauge_chart" [chartData]="gauge_ChartData" [chartOptions]= "gauge_ChartOptions" chartType="Gauge" GoogleChart></div>
     <h2>  Area Chart</h2>
-    <div id="area_chart" [chartData]="area_ChartData" [chartOptions]= "area_ChartOptions" chartType="AreaChart" GoogleChart></div>
+    <div id="area_chart" (itemSelect)="itemSelected($event)" (itemDeselect)="itemDeselected($event)" [chartData]="area_ChartData" [chartOptions]= "area_ChartOptions" chartType="AreaChart" GoogleChart></div>
     <h2>  Line Chart</h2>
-    <div id="line_chart" [chartData]="line_ChartData" [chartOptions]= "line_ChartOptions" chartType="LineChart" GoogleChart></div>
+    <div id="line_chart" (itemSelect)="itemSelected($event)" (itemDeselect)="itemDeselected($event)" [chartData]="line_ChartData" [chartOptions]= "line_ChartOptions" chartType="LineChart" GoogleChart></div>
     <h2>  Bubble Chart</h2>
-    <div id="bubble_chart" [chartData]="bubble_ChartData"  [chartOptions] = "bubble_ChartOptions" chartType="BubbleChart" GoogleChart></div>
+    <div id="bubble_chart" (itemSelect)="itemSelected($event)" (itemDeselect)="itemDeselected($event)" [chartData]="bubble_ChartData"  [chartOptions] = "bubble_ChartOptions" chartType="BubbleChart" GoogleChart></div>
     <h2>  Scatter Chart</h2>
-    <div id="scatter_chart" [chartData]="scatter_ChartData"  [chartOptions] = "scatter_ChartOptions" chartType="ScatterChart" GoogleChart></div>
+    <div id="scatter_chart" (itemSelect)="itemSelected($event)" (itemDeselect)="itemDeselected($event)" [chartData]="scatter_ChartData"  [chartOptions] = "scatter_ChartOptions" chartType="ScatterChart" GoogleChart></div>
     <h2>  CandlestickChart</h2>
-    <div id="candle_chart" [chartData]="candle_ChartData" [chartOptions] = "candle_ChartOptions" chartType="CandlestickChart" GoogleChart></div>
+    <div id="candle_chart" (itemSelect)="itemSelected($event)" (itemDeselect)="itemDeselected($event)" [chartData]="candle_ChartData" [chartOptions] = "candle_ChartOptions" chartType="CandlestickChart" GoogleChart></div>
     <h2>  Pie Chart</h2>
-    <div id="pie_chart" [chartData]="pie_ChartData" [chartOptions] = "pie_ChartOptions" chartType="PieChart" GoogleChart></div>
+    <div id="pie_chart" (itemSelect)="itemSelected($event)" (itemDeselect)="itemDeselected($event)" [chartData]="pie_ChartData" [chartOptions] = "pie_ChartOptions" chartType="PieChart" GoogleChart></div>
     <h2>  Bar Chart</h2>
-    <div id="bar_chart" [chartData]="bar_ChartData" [chartOptions] = "bar_ChartOptions" chartType="BarChart" GoogleChart></div>
+    <div id="bar_chart" (itemSelect)="itemSelected($event)" (itemDeselect)="itemDeselected($event)" [chartData]="bar_ChartData" [chartOptions] = "bar_ChartOptions" chartType="BarChart" GoogleChart></div>
     <h2>  Map Chart</h2>
-    <div id="map_chart" [chartData]="map_ChartData" [chartOptions] = "map_ChartOptions" chartType="GeoChart" GoogleChart></div>
+    <div id="map_chart" (itemSelect)="itemSelected($event)" (itemDeselect)="itemDeselected($event)" [chartData]="map_ChartData" [chartOptions] = "map_ChartOptions" chartType="GeoChart" GoogleChart></div>
     <h2>  Organization Chart</h2>
-    <div id="org_chart" [chartData]="org_ChartData" [chartOptions] = "org_ChartOptions" chartType="OrgChart" GoogleChart></div>
+    <div id="org_chart" (itemSelect)="itemSelected($event)" (itemDeselect)="itemDeselected($event)" [chartData]="org_ChartData" [chartOptions] = "org_ChartOptions" chartType="OrgChart" GoogleChart></div>
 
 	`
 })
@@ -89,15 +89,15 @@ export class AppComponent {
         ['France', 600],
         ['RU', 700]
     ];
-     public org_ChartData = [
+    public org_ChartData = [
         ['Name', 'Manager', 'ToolTip'],
-         [{v:'Mike', f:'Mike<div style="color:red; font-style:italic">President</div>'},
-           '', 'The President'],
-          [{v:'Jim', f:'Jim<div style="color:red; font-style:italic">Vice President</div>'},
-           'Mike', 'VP'],
-          ['Alice', 'Mike', ''],
-          ['Bob', 'Jim', 'Bob Sponge'],
-          ['Carol', 'Bob', '']
+        [{v: 'Mike', f: 'Mike<div style="color:red; font-style:italic">President</div>'},
+            '', 'The President'],
+        [{v: 'Jim', f: 'Jim<div style="color:red; font-style:italic">Vice President</div>'},
+            'Mike', 'VP'],
+        ['Alice', 'Mike', ''],
+        ['Bob', 'Jim', 'Bob Sponge'],
+        ['Carol', 'Bob', '']
     ];
     public line_ChartOptions = {
         title: 'Company Performance',
@@ -109,17 +109,17 @@ export class AppComponent {
     public bubble_ChartOptions = {
         title: 'Correlation between life expectancy, fertility rate ' +
         'and population of some world countries (2010)',
-        hAxis: { title: 'Life Expectancy' },
-        vAxis: { title: 'Fertility Rate' },
-        bubble: { textStyle: { fontSize: 11 } }
+        hAxis: {title: 'Life Expectancy'},
+        vAxis: {title: 'Fertility Rate'},
+        bubble: {textStyle: {fontSize: 11}}
 
     };
     public candle_ChartOptions = {
         legend: 'none',
-        bar: { groupWidth: '100%' }, // Remove space between bars.
+        bar: {groupWidth: '100%'}, // Remove space between bars.
         candlestick: {
-            fallingColor: { strokeWidth: 0, fill: '#a52714' }, // red
-            risingColor: { strokeWidth: 0, fill: '#0f9d58' }   // green
+            fallingColor: {strokeWidth: 0, fill: '#a52714'}, // red
+            risingColor: {strokeWidth: 0, fill: '#0f9d58'}   // green
         }
     };
     public scatter_ChartOptions = {
@@ -130,7 +130,7 @@ export class AppComponent {
     };
     public bar_ChartOptions = {
         title: 'Population of Largest U.S. Cities',
-        chartArea: { width: '50%' },
+        chartArea: {width: '50%'},
         hAxis: {
             title: 'Total Population',
             minValue: 0,
@@ -184,11 +184,19 @@ export class AppComponent {
 
     public area_ChartOptions = {
         title: 'Company Performance',
-        hAxis: { title: 'Year', titleTextStyle: { color: '#333' } },
-        vAxis: { minValue: 0 }
+        hAxis: {title: 'Year', titleTextStyle: {color: '#333'}},
+        vAxis: {minValue: 0}
     };
     public map_ChartOptions = {};
     public org_ChartOptions = {
-        allowHtml:true
+        allowHtml: true
     };
+
+    itemSelected(event) {
+        alert(JSON.stringify(event));
+    }
+
+    itemDeselected(event) {
+        alert("DESELECTED");
+    }
 }

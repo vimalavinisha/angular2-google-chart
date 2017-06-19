@@ -3,6 +3,8 @@
 This module supports Both angular 2 and angular 4 versions
 ``` 
 The sources for this package are in (<https://github.com/vimalavinisha/angular2-google-chart>) repo. Please file issues and pull requests against this repo.
+## Recently added Features:
+  Event listener added  when user select/deselect on the chart points. It is an optional.
 
 ## Demo Output
 
@@ -12,8 +14,6 @@ The sources for this package are in (<https://github.com/vimalavinisha/angular2-
 ```
 node install
 npm install angular2-google-chart
-bower install
-bower install google-chart
 ```
 
 ### 1.In index.html page include following script
