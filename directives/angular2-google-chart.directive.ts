@@ -1,12 +1,13 @@
-import {Directive, ElementRef, Input, Output, OnChanges, EventEmitter, HostBinding, HostListener} from '@angular/core';
+import { Directive, ElementRef, Input, Output, OnChanges, EventEmitter, HostBinding, HostListener, OnDestroy } from '@angular/core';
 declare const google: any;
 declare let googleLoaded: any;
 declare const googleChartsPackagesToLoad: any;
 @Directive({
     selector: '[GoogleChart]'
 })
-export class GoogleChart implements OnChanges {
+export class GoogleChart implements OnChanges, OnDestroy {
     public _element: any;
+    private wrapper;
     @Input('chartType') public chartType: string;
     @Input('chartOptions') public chartOptions: Object;
     @Input('loadingDelay') public loadingDelay = 0;
@@ -35,21 +36,22 @@ export class GoogleChart implements OnChanges {
         const self = this;
 
         function drawChart() {
-            const wrapper = new google.visualization.ChartWrapper({
+            self.wrapper = new google.visualization.ChartWrapper({
                 chartType: chartType,
                 dataTable: chartData,
                 options: chartOptions || {}
             });
-            wrapper.draw(ele);
-            google.visualization.events.addListener(wrapper, 'select', function () {
-                const selectedItem = wrapper.getChart().getSelection()[0];
+            
+            self.wrapper.draw(ele);
+            google.visualization.events.addListener(self.wrapper, 'select', function () {
+                const selectedItem = self.wrapper.getChart().getSelection()[0];
                 if (selectedItem) {
                     let msg;
                     if (selectedItem !== undefined) {
                         const selectedRowValues = [];
                         if (selectedItem.row !== null) {
-                            selectedRowValues.push(wrapper.getDataTable().getValue(selectedItem.row, 0));
-                            selectedRowValues.push(wrapper.getDataTable().getValue(selectedItem.row, selectedItem.column));
+                            selectedRowValues.push(self.wrapper.getDataTable().getValue(selectedItem.row, 0));
+                            selectedRowValues.push(self.wrapper.getDataTable().getValue(selectedItem.row, selectedItem.column));
                             msg = {
                                 message: 'select',
                                 row: selectedItem.row,
@@ -62,6 +64,12 @@ export class GoogleChart implements OnChanges {
                 } else
                     self.itemDeselect.emit();
             });
+        }
+    }
+
+    ngOnDestroy() {
+        if(this.wrapper && this.wrapper.getChart() && this.wrapper.getChart().clearChart) {
+            this.wrapper.getChart().clearChart();
         }
     }
 }
