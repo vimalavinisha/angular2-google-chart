@@ -1,12 +1,17 @@
-import {Directive, ElementRef, Input, Output, OnChanges, EventEmitter, HostBinding, HostListener} from '@angular/core';
+import { Directive, ElementRef, Input, Output, OnChanges, EventEmitter, HostBinding, HostListener, OnDestroy } from '@angular/core';
 declare const google: any;
 declare let googleLoaded: any;
 declare const googleChartsPackagesToLoad: any;
+
 @Directive({
     selector: '[GoogleChart]'
 })
-export class GoogleChart implements OnChanges {
-    public _element: any;
+
+export class GoogleChart implements OnChanges, OnDestroy {
+
+    public el: HTMLElement;
+    public wrapper: any;
+
     @Input('chartType') public chartType: string;
     @Input('chartOptions') public chartOptions: Object;
     @Input('loadingDelay') public loadingDelay = 0;
@@ -15,7 +20,7 @@ export class GoogleChart implements OnChanges {
     @Output('itemDeselect') public itemDeselect: EventEmitter<void> = new EventEmitter<void>();
 
     constructor(public element: ElementRef) {
-        this._element = this.element.nativeElement;
+        this.el = this.element.nativeElement;
     }
 
     ngOnChanges() {
@@ -23,33 +28,32 @@ export class GoogleChart implements OnChanges {
             googleLoaded = true;
             google.charts.load('current', {'packages': ['corechart', 'gauge']['orgchart']});
         }
-        setTimeout(() => this.drawGraph(this.chartOptions, this.chartType, this.chartData, this._element), this.loadingDelay);
+        setTimeout(() => this.drawGraph(this.chartOptions, this.chartType, this.chartData, this.el ), this.loadingDelay);
     }
 
     @HostListener('window:resize') onResize(event: Event) {
-        this.drawGraph(this.chartOptions, this.chartType, this.chartData, this._element);
+        this.drawGraph(this.chartOptions, this.chartType, this.chartData, this.el );
     }
 
     drawGraph(chartOptions, chartType, chartData, ele) {
-        google.charts.setOnLoadCallback(drawChart);
-        const self = this;
-
-        function drawChart() {
-            const wrapper = new google.visualization.ChartWrapper({
+        const drawChart = () => {
+            this.wrapper = new google.visualization.ChartWrapper({
                 chartType: chartType,
                 dataTable: chartData,
                 options: chartOptions || {}
             });
-            wrapper.draw(ele);
-            google.visualization.events.addListener(wrapper, 'select', function () {
-                const selectedItem = wrapper.getChart().getSelection()[0];
+            
+            this.wrapper.draw(ele);
+            google.visualization.events.addListener(this.wrapper, 'select', () => {
+                const selectedItem = this.wrapper.getChart().getSelection()[0];
                 if (selectedItem) {
                     let msg;
                     if (selectedItem !== undefined) {
                         const selectedRowValues = [];
                         if (selectedItem.row !== null) {
-                            selectedRowValues.push(wrapper.getDataTable().getValue(selectedItem.row, 0));
-                            selectedRowValues.push(wrapper.getDataTable().getValue(selectedItem.row, selectedItem.column));
+                            var q = this.wrapper;
+                            selectedRowValues.push(this.wrapper.getDataTable().getValue(selectedItem.row, 0));
+                            selectedRowValues.push(this.wrapper.getDataTable().getValue(selectedItem.row, selectedItem.column ? selectedItem.column : 0 ));
                             msg = {
                                 message: 'select',
                                 row: selectedItem.row,
@@ -58,10 +62,21 @@ export class GoogleChart implements OnChanges {
                             };
                         }
                     }
-                    self.itemSelect.emit(msg);
-                } else
-                    self.itemDeselect.emit();
+                    this.itemSelect.emit(msg);
+                } else {
+                    this.itemDeselect.emit();
+                }
             });
+        }
+
+        google.charts.setOnLoadCallback(() => {
+            drawChart();
+        });
+    }
+
+    ngOnDestroy() {
+        if(this.wrapper && this.wrapper.getChart() && this.wrapper.getChart().clearChart) {
+            this.wrapper.getChart().clearChart();
         }
     }
 }
