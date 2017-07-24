@@ -5,6 +5,10 @@ This module supports Both angular 2 and angular 4 versions
 The sources for this package are in (<https://github.com/vimalavinisha/angular2-google-chart>) repo. Please file issues and pull requests against this repo.
 ## Recently added Features:
   Event listener added  when user select/deselect on the chart points. It is an optional.
+### Live Demo
+[Live Demo Site](http://www.angular2modules.com/googlechart "Live Demo Site For Letter Recaptcha ")
+OR
+[Live Demo Site](http://www.angular2modules.com/googlechart "Live Demo Site For Letter Recaptcha ")
 
 ## Demo Output
 
