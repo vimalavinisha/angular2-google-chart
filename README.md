@@ -39,7 +39,7 @@ import {Component} from '@angular/core';
 @Component({
     selector: 'my-app',
     template: `
-    <h2>  Gaugh Chart</h2>
+    <h2>  Gauge Chart</h2>
     <div id="gauge_chart" [chartData]="gauge_ChartData" [chartOptions]= "gauge_ChartOptions" chartType="Gauge" GoogleChart></div>
     <h2>  Area Chart</h2>
     <div id="area_chart" [chartData]="area_ChartData" [chartOptions]= "area_ChartOptions" chartType="AreaChart" GoogleChart></div>
